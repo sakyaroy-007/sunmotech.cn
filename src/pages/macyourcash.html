@@ -1,0 +1,134 @@
+<!--meta
+{"out": "macyourcash/index.html", "title": "macYourCash — 让 macOS 构建跑在物理 Mac 上 · Sunmo", "desc": "macYourCash 把中国大陆机主闲置的 Mac 组织成构建算力池：GitHub Actions 的 macOS 任务跑在物理 Mac 上，按分钟计费；机主在 Mac 空闲时接单。开发中。", "body": "page-cash", "scripts": ["pool"]}
+-->
+<section class="hero" aria-labelledby="hero-title" style="min-height:92svh">
+  <div class="hero-bg"></div>
+  <canvas class="aurora" data-palette="cash" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-copy" style="max-width:920px">
+      <p class="eyebrow" data-reveal>macYourCash · macOS 构建算力 · 开发中</p>
+      <h1 id="hero-title" class="display" data-lines="120">
+        <span class="ln"><span>你的 Mac，</span></span>
+        <span class="ln"><span>比你想象的<em class="serif">更值钱</em>。</span></span>
+      </h1>
+      <p class="lede" data-reveal style="--d:380ms">macYourCash 把中国大陆机主闲置的 Mac 组织成构建算力池：开发团队的 GitHub Actions macOS 任务跑在物理 Mac 上，按分钟计费；机主在 Mac 空闲时接单。</p>
+      <div class="btn-row" data-reveal style="--d:500ms">
+        <a class="btn btn-primary down" href="#teams" data-magnet>我是开发团队<span class="i">{{ARROW_DOWN}}{{ARROW_DOWN}}</span></a>
+        <a class="btn btn-ghost down" href="#owners">我有闲置的 Mac<span class="i">{{ARROW_DOWN}}{{ARROW_DOWN}}</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-tight" aria-labelledby="pool-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="head">
+        <p class="eyebrow" data-reveal>The pool · 算力池</p>
+        <h2 class="h2" id="pool-title" data-lines><span class="ln"><span>空闲时接单，</span></span><span class="ln"><span><em class="serif">主人回来就让路</em>。</span></span></h2>
+      </div>
+      <p class="lede" data-reveal style="max-width:28em">任务从 GitHub Actions 排队派到空闲的 Mac 上。机主开始用电脑，这台 Mac 就不再接新任务，正在跑的任务照常收尾。</p>
+    </div>
+    <div class="pool-wrap" data-reveal="scale">
+      <canvas data-pool aria-label="算力池示意动画：任务从 GitHub Actions 派到空闲的 Mac 上运行"></canvas>
+      <div class="pool-legend">
+        <span><i></i>空闲，可接单</span>
+        <span class="run"><i></i>正在构建</span>
+        <span class="own"><i></i>机主在用，不接新单</span>
+        <span class="mono" data-pool-stats aria-live="off"></span>
+        <span class="note-r">示意动画，不是实时数据</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="teams" aria-labelledby="teams-title">
+  <div class="wrap">
+    <div class="split wide-vis">
+      <div class="copy-stack">
+        <p class="eyebrow" data-reveal>For teams · 开发团队</p>
+        <h2 class="h2" id="teams-title" data-lines><span class="ln"><span>改一行 <span class="mono" style="font-size:.8em">runs-on</span>，</span></span><span class="ln"><span><em class="serif">构建就上物理 Mac</em>。</span></span></h2>
+        <p class="body" data-reveal>workflow 照常由 GitHub 编排，macYourCash 把机器注册成 GitHub Actions 的 self-hosted runner。接入通常从修改 <span class="mono">runs-on</span> 开始，再按我们的工具链检查依赖、签名和缓存配置。</p>
+      </div>
+      <div class="code" data-reveal="scale" data-type-host>
+        <div class="code-bar"><i></i><i></i><i></i><span>.github/workflows/build.yml</span></div>
+<pre><span class="k">name</span>: <span class="s">build</span>
+<span class="k">on</span>: [push]
+<span class="k">jobs</span>:
+  <span class="k">build</span>:
+<span class="ln-del">-   runs-on: macos-latest</span><span class="ln-add">+   <span data-type>runs-on: [self-hosted, </span><span class="typed-after"><span class="ph">档位</span>]</span></span>    <span class="k">steps</span>:
+      - uses: actions/checkout@v4
+      - run: xcodebuild -scheme App build</pre>
+      </div>
+    </div>
+
+    <div class="steps3" style="margin-top:clamp(48px,6vw,80px)">
+      <article class="card step3" data-spot data-reveal><span class="sn">1</span><h3>安装 GitHub App</h3><p>通过 GitHub 的标准安装流程装到你的账号或组织上，自己选它能访问哪些仓库。</p></article>
+      <article class="card step3" data-spot data-reveal style="--d:80ms"><span class="sn">2</span><h3>选一个私有仓库</h3><p>macYourCash 只服务私有仓库。公开仓库可以直接用 GitHub 自带的免费 macOS runner。</p></article>
+      <article class="card step3" data-spot data-reveal style="--d:160ms"><span class="sn">3</span><h3>改一行 runs-on</h3><p>换成 self-hosted 加档位标签，需要完整 Xcode 时再加上对应的大版本标签。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tier-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-reveal>Tiers · 档位</p>
+      <h2 class="h2" id="tier-title" data-lines><span class="ln"><span>按芯片分档，<em class="serif">按分钟计费</em>。</span></span></h2>
+      <p class="lede" data-reveal>四个档位按 Apple 芯片家族划分。构建按用时计费，不足一分钟按一分钟算。</p>
+    </div>
+    <div class="tiers">
+      <article class="card tier" data-spot data-reveal><span class="chip"><span>M<small>基础款</small></span></span><h3>轻量</h3><p>M 系列基础款芯片</p><span class="lv"><i class="on"></i><i></i><i></i><i></i></span></article>
+      <article class="card tier" data-spot data-reveal style="--d:70ms"><span class="chip"><span>M<small>Pro</small></span></span><h3>标准</h3><p>M 系列 Pro 芯片</p><span class="lv"><i class="on"></i><i class="on"></i><i></i><i></i></span></article>
+      <article class="card tier" data-spot data-reveal style="--d:140ms"><span class="chip"><span>M<small>Max</small></span></span><h3>高性能</h3><p>M 系列 Max 芯片</p><span class="lv"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></article>
+      <article class="card tier" data-spot data-reveal style="--d:210ms"><span class="chip"><span>M<small>Ultra</small></span></span><h3>旗舰</h3><p>M 系列 Ultra 芯片</p><span class="lv"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></article>
+    </div>
+    <div class="note" data-reveal style="margin-top:20px">{{INFO}}<span>基础环境是 macOS 加 Apple 命令行工具，不是 GitHub macOS 镜像的完整拷贝。完整 Xcode 只在部分机器上有，可以按大版本选机；Homebrew、CocoaPods 不预装；任务以无 sudo 的受限用户运行，没有 Docker、虚拟机和图形会话。</span></div>
+  </div>
+</section>
+
+<section class="sec" id="owners" aria-labelledby="owners-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-reveal>For owners · 机主</p>
+      <h2 class="h2" id="owners-title" data-lines><span class="ln"><span>Mac 闲着的时候，</span></span><span class="ln"><span><em class="serif">让它接单</em>。</span></span></h2>
+      <p class="lede" data-reveal>装一个菜单栏小工具，选好接单方式就行。你回来用电脑，它会自己让路。</p>
+    </div>
+    <div class="modes">
+      <article class="card mode" data-spot data-reveal><span class="mi"><span class="sw"></span>Manual</span><h3>手动</h3><p>你点「开始出租」才接单，什么时候出租完全由你决定。</p></article>
+      <article class="card mode on" data-spot data-reveal style="--d:80ms"><span class="mi"><span class="sw"></span>Auto</span><h3>自动</h3><p>Mac 空闲就接单，可以设定接单的时间段。</p></article>
+      <article class="card mode" data-spot data-reveal style="--d:160ms"><span class="mi"><span class="sw"></span>Shared</span><h3>共享</h3><p>你在用也能接，但只接比这台 Mac 低一档的任务，并降到后台优先级运行。标准档及以上机型可用。</p></article>
+    </div>
+    <ul class="feat-list" style="margin-top:clamp(40px,5vw,64px)">
+      <li data-reveal><span class="n">01</span><h3>你回来，它就让路</h3><p>检测到你在持续使用电脑，就不再接新任务；正在跑的任务照常收尾。</p></li>
+      <li data-reveal style="--d:60ms"><span class="n">02</span><h3>碰一下鼠标不算</h3><p>按一段时间里的持续操作来判断你是不是回来了，手滑碰一下不会让机器下线。</p></li>
+      <li data-reveal style="--d:120ms"><span class="n">03</span><h3>进池门槛</h3><p>M 系列芯片，内存 16 GB 起。机主目前只接受中国大陆用户。</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="fine-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-reveal>The fine print · 说在前面</p>
+      <h2 class="h2" id="fine-title" data-lines><span class="ln"><span>把<em class="serif">边界</em>讲清楚。</span></span></h2>
+      <p class="lede" data-reveal>构建跑在别人的物理 Mac 上，有些事我们现在做不到，先说清楚。</p>
+    </div>
+    <ul class="fine">
+      <li data-reveal><span class="x">—</span><h3>不承诺机主看不到你的代码</h3><p>机主是那台 Mac 的管理员。我们会处理可验证的异常和举报，但不承诺能即时发现、删除或阻止泄露。</p></li>
+      <li data-reveal style="--d:60ms"><span class="x">—</span><h3>不承诺随时有机器</h3><p>机器来自空闲时出租的机主；没有合适的机器在线时，任务会排队。</p></li>
+      <li data-reveal style="--d:120ms"><span class="x">—</span><h3>签名材料不要放到构建机上</h3><p>签名证书、钥匙串密码、App Store Connect 密钥这类长期密钥，请在你自己控制的机器或签名服务上处理。</p></li>
+      <li data-reveal style="--d:180ms"><span class="x">—</span><h3>暂不公布 SLA 数字</h3><p>服务等级协议还在起草，现在不给可用率、提速比例这类数字。</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec cta" aria-labelledby="cta-title">
+  <div class="cta-orb"></div>
+  <div class="wrap cta-inner">
+    <p class="eyebrow" data-reveal>Stay tuned</p>
+    <h2 class="h2" id="cta-title" data-lines><span class="ln"><span>想了解<em class="serif">进展</em>？</span></span></h2>
+    <p class="lede center" data-reveal>macYourCash 正在开发中。开发团队和机主，都可以先写信告诉我们。</p>
+    <a class="btn btn-primary" href="mailto:apple@sunmotech.cn?subject=macYourCash" data-reveal data-magnet>写信给我们<span class="i">{{ARROW}}{{ARROW}}</span></a>
+  </div>
+</section>

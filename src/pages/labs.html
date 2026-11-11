@@ -1,0 +1,165 @@
+<!--meta
+{"out": "labs/index.html", "title": "SAKYAROY LABS — Sunmo 的专业音频插件 · Silencio 人声降噪", "desc": "SAKYAROY LABS 是 Sunmo 的专业音频插件系列。首款作品 Silencio：持续自动估计噪声的人声降噪插件，AU / VST3，Apple 芯片原生。Silkify、SakyaHeaven、Aura Rack 正在研发。", "body": "page-labs", "scripts": ["labs"]}
+-->
+<section class="hero center" aria-labelledby="hero-title" style="min-height:auto;text-align:center;padding-bottom:24px">
+  <div class="hero-bg" style="background:radial-gradient(50% 45% at 50% 0%,rgba(180,220,240,.10),transparent 70%)"></div>
+  <canvas class="aurora" data-palette="labs" aria-hidden="true" style="opacity:.55"></canvas>
+  <div class="spot" aria-hidden="true"></div>
+  <canvas class="dust" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-copy" style="margin-inline:auto;max-width:980px;display:grid;justify-items:center">
+      <p class="eyebrow" data-reveal>SAKYAROY LABS · 专业音频插件</p>
+      <p class="wordmark" data-reveal style="--d:120ms" aria-hidden="true">SAKYAROY LABS</p>
+      <h1 id="hero-title" class="display sm" data-lines="320" style="margin-top:34px">
+        <span class="ln"><span>声音，尚有<em class="serif">未知</em>。</span></span>
+      </h1>
+      <p class="mono" data-reveal style="--d:520ms;margin-top:18px;letter-spacing:.42em;font-size:12px;color:var(--fg-3)">SHAPE THE UNHEARD.</p>
+      <p class="lede" data-reveal style="--d:600ms">SAKYAROY LABS 是 Sunmo 的专业音频插件系列。首款作品 Silencio 已经定版，下一件作品正在幕布之后成形。</p>
+      <div class="btn-row" data-reveal style="--d:700ms;justify-content:center">
+        <a class="btn btn-primary down" href="#silencio" data-magnet>认识 Silencio<span class="i">{{ARROW_DOWN}}{{ARROW_DOWN}}</span></a>
+        <a class="btn btn-ghost down" href="#curtain">即将揭幕<span class="i">{{ARROW_DOWN}}{{ARROW_DOWN}}</span></a>
+      </div>
+    </div>
+    <div class="spectrum-wrap" data-reveal="fade" style="--d:500ms" aria-hidden="true"><canvas data-spectrum="hero"></canvas></div>
+  </div>
+</section>
+
+<section class="sec" id="silencio" aria-labelledby="sil-title">
+  <div class="wrap">
+    <div class="split wide-vis">
+      <div class="copy-stack">
+        <p class="eyebrow" data-reveal>Lab / 001 · Silencio · 人声降噪</p>
+        <h2 class="h2" id="sil-title" data-lines>
+          <span class="ln"><span>让声音，</span></span>
+          <span class="ln"><span>回到<em class="serif">主角</em>。</span></span>
+        </h2>
+        <p class="lede" data-reveal>削减人声背后的噪声，让注意力回到表达本身。在直觉的控制与清晰的反馈之间，找到你的声音。</p>
+        <div class="btn-row" data-reveal><span class="tag"><i></i>1.1.0 已定版</span><span class="tag">AU / VST3</span><span class="tag">Apple 芯片原生</span></div>
+      </div>
+      <div style="position:relative" data-reveal="scale">
+        <div class="glow-under" style="background:radial-gradient(closest-side,rgba(217,181,122,.45),transparent)"></div>
+        <div class="frame tilt" data-tilt="4" style="max-width:640px;margin-inline:auto"><img src="/assets/img/silencio.jpg" width="1800" height="1670" alt="Silencio 插件界面：上方是频谱显示（signal、reduction、now），下方是 Attenuation、Focus、Bias 三个金属旋钮，底部有 Noise listen 和 Bypass" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="feat-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy-stack">
+        <p class="eyebrow" data-reveal>Designed for listening</p>
+        <h2 class="h2" id="feat-title" data-lines><span class="ln"><span>少一点干扰，</span></span><span class="ln"><span><em class="serif">多一点表达</em>。</span></span></h2>
+      </div>
+      <ul class="feat-list">
+        <li data-reveal><span class="n">01</span><h3>不用先录一段噪声</h3><p>直接播放音频，Silencio 就会持续自动估计噪声，无需先录制噪声片段来「学习」。</p></li>
+        <li data-reveal style="--d:80ms"><span class="n">02</span><h3>三个旋钮，频谱看得见</h3><p>通过 Attenuation、Focus 与 Bias 调整处理；频谱显示帮助观察保留与移除的能量。</p></li>
+        <li data-reveal style="--d:160ms"><span class="n">03</span><h3>听见每一次取舍</h3><p>Noise listen 用来检查被移除的成分，配合旁通（Bypass）对比，让判断回到双耳。</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="play-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow" data-reveal>Hands on · 转一转</p>
+      <h2 class="h2" id="play-title" data-lines><span class="ln"><span>拖动旋钮，<em class="serif">看它怎么取舍</em>。</span></span></h2>
+      <p class="lede" data-reveal>上下拖动或用方向键调节，双击回到初始值。建议从 Attenuation −10 dB、Focus 50、Bias 0 dB 开始。</p>
+    </div>
+    <div class="card labs-panel" data-reveal="scale" style="max-width:1000px;margin-inline:auto">
+      <div class="labs-display">
+        <canvas data-spectrum="panel" aria-hidden="true"></canvas>
+        <div class="labs-legend" aria-hidden="true"><span><i></i>SIGNAL</span><span><i></i>REDUCTION</span></div>
+      </div>
+      <div class="knobs">
+        <div class="knob-wrap">
+          <label id="k-att">Attenuation</label>
+          <div class="knob" role="slider" tabindex="0" aria-labelledby="k-att" aria-valuemin="-20" aria-valuemax="0" aria-valuenow="-10" data-key="att" data-min="-20" data-max="0" data-step="0.5" data-value="-10" data-unit="dB">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M21.7 78.3A40 40 0 1 1 78.3 78.3" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2.4" stroke-linecap="round"/><path class="arc" d="M21.7 78.3A40 40 0 1 1 78.3 78.3" fill="none" stroke="#d9b57a" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <div class="cap"></div><div class="ind"></div>
+          </div>
+          <span class="knob-val">-10.0 dB</span>
+        </div>
+        <div class="knob-wrap">
+          <label id="k-focus">Focus</label>
+          <div class="knob" role="slider" tabindex="0" aria-labelledby="k-focus" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-key="focus" data-min="0" data-max="100" data-step="1" data-value="50">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M21.7 78.3A40 40 0 1 1 78.3 78.3" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2.4" stroke-linecap="round"/><path class="arc" d="M21.7 78.3A40 40 0 1 1 78.3 78.3" fill="none" stroke="#d9b57a" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <div class="cap"></div><div class="ind"></div>
+          </div>
+          <span class="knob-val">50</span>
+        </div>
+        <div class="knob-wrap">
+          <label id="k-bias">Bias</label>
+          <div class="knob" role="slider" tabindex="0" aria-labelledby="k-bias" aria-valuemin="-20" aria-valuemax="20" aria-valuenow="0" data-key="bias" data-min="-20" data-max="20" data-step="0.5" data-value="0" data-unit="dB">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M21.7 78.3A40 40 0 1 1 78.3 78.3" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2.4" stroke-linecap="round"/><path class="arc" d="M21.7 78.3A40 40 0 1 1 78.3 78.3" fill="none" stroke="#d9b57a" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <div class="cap"></div><div class="ind"></div>
+          </div>
+          <span class="knob-val">0.0 dB</span>
+        </div>
+      </div>
+      <p class="small center">界面示意：频谱是网页动画，不处理真实音频。旋钮范围与插件一致：Attenuation −20 到 0 dB，Focus 0 到 100，Bias −20 到 20 dB。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="spec-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="head">
+        <p class="eyebrow" data-reveal>Specs · 规格</p>
+        <h2 class="h2" id="spec-title" data-lines><span class="ln"><span>兼容性与<em class="serif">发布信息</em></span></span></h2>
+      </div>
+    </div>
+    <dl class="specs" data-reveal>
+      <div><dt>格式</dt><dd>AU / VST3</dd></div>
+      <div><dt>平台</dt><dd>macOS<small>Apple 芯片原生</small></dd></div>
+      <div><dt>声道</dt><dd>单声道 / 立体声</dd></div>
+      <div><dt>采样率</dt><dd>8 / 16 / 44.1 / 48 / 88.2 / 96 / 176.4 / 192 kHz<small>其他采样率安全原样旁路</small></dd></div>
+      <div><dt>延迟</dt><dd><span data-count="14">14</span> 个采样<small>48 kHz 下报告延迟，约 0.292 ms</small></dd></div>
+      <div><dt>控制</dt><dd>Attenuation · Focus · Bias<small>另有 Noise listen 与 Bypass</small></dd></div>
+    </dl>
+    <div class="note" data-reveal style="margin-top:20px">{{INFO}}<span>官网下载正在准备中。正式版本、系统要求与安装说明将在下载开放时一并公布。</span></div>
+  </div>
+</section>
+
+<section class="sec" id="curtain" aria-labelledby="cur-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow" data-reveal>Behind the curtain</p>
+      <h2 class="h2" id="cur-title" data-lines><span class="ln"><span>未知，<em class="serif">即将有声</em>。</span></span></h2>
+      <p class="lede" data-reveal>有些声音，值得等待。下一件作品，正在幕布之后成形。</p>
+    </div>
+    <div class="curtains">
+      <article class="curtain" data-reveal>
+        <div class="cloth"></div><div class="valance"></div><div class="light"></div><div class="floor"></div><div class="sliver"></div>
+        <div class="meta"><span>LAB / 002</span><span>未揭幕</span></div>
+        <div class="name"><h3>Silkify</h3><span>COMING SOON</span></div>
+      </article>
+      <article class="curtain" data-reveal style="--d:100ms">
+        <div class="cloth" style="--dl:-3s"></div><div class="valance"></div><div class="light"></div><div class="floor"></div><div class="sliver"></div>
+        <div class="meta"><span>LAB / 003</span><span>未揭幕</span></div>
+        <div class="name"><h3>SakyaHeaven</h3><span>COMING SOON</span></div>
+      </article>
+      <article class="curtain" data-reveal style="--d:200ms">
+        <div class="cloth" style="--dl:-6s"></div><div class="valance"></div><div class="light"></div><div class="floor"></div><div class="sliver"></div>
+        <div class="meta"><span>LAB / 004</span><span>未揭幕</span></div>
+        <div class="name"><h3>Aura Rack</h3><span>COMING SOON</span></div>
+      </article>
+    </div>
+    <p class="small center" data-reveal style="margin-top:36px;letter-spacing:.14em">正在研发 · 静候揭幕 · 每一件作品，都有自己的揭幕时刻</p>
+  </div>
+</section>
+
+<section class="sec cta" aria-labelledby="phil-title">
+  <div class="cta-orb"></div>
+  <div class="wrap cta-inner">
+    <p class="eyebrow" data-reveal>Our philosophy</p>
+    <h2 class="display sm" id="phil-title" data-lines>
+      <span class="ln"><span>精密，是手段。</span></span>
+      <span class="ln"><span>表达，<em class="serif">才是目的</em>。</span></span>
+    </h2>
+    <p class="lede center" data-reveal>我们探索声音技术，也尊重创作的直觉。让复杂留在工具内部，让灵感自由发生。</p>
+    <a class="btn btn-ghost" href="mailto:apple@sunmotech.cn?subject=SAKYAROY%20LABS" data-reveal>联系 SAKYAROY LABS<span class="i">{{ARROW}}{{ARROW}}</span></a>
+  </div>
+</section>
