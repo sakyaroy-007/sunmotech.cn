@@ -21,6 +21,14 @@ python3 -m http.server 8777                 # 本地预览 http://127.0.0.1:8777
 
 推到 `main` 就会发布。
 
+截字体子集要先装工具、下源字体（都放仓库外）：
+
+```bash
+python3 -m venv /tmp/fontvenv && /tmp/fontvenv/bin/pip install fonttools brotli
+curl -L -o /tmp/NotoSerifSC-Medium.otf https://github.com/notofonts/noto-cjk/raw/main/Serif/SubsetOTF/SC/NotoSerifSC-Medium.otf
+NOTO_SERIF_SC=/tmp/NotoSerifSC-Medium.otf /tmp/fontvenv/bin/python -I src/build.py --fonts
+```
+
 ## 字体
 
 Geist、Geist Mono、Instrument Serif、思源宋体（Noto Serif SC，按页面用到的字截取为 `SunmoSerifSC.woff2`）都是 SIL Open Font License 1.1，许可见 `assets/fonts/OFL.txt`。
